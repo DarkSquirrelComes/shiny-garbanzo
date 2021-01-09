@@ -1,2 +1,1 @@
-# shiny-garbanzo
-trivial echo-site with VueJS front and Flask back
+vue + flask "hello world" app
