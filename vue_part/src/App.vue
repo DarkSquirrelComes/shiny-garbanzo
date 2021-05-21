@@ -1,5 +1,5 @@
 <template>
-  <HelloWorld/>
+  <HelloWorld text="I am the button" msg="I am the message!"/>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
   <div class="hello">
     <p>{{ state.msg }}</p>
     <button @click="onClick">
-      echo!
+      {{ text }}
     </button>
   </div>
 </template>
@@ -11,12 +11,24 @@
 import { reactive } from "vue";
 
 export default {
-  setup() {
+  props: {
+    text: {
+      type: String,
+      required: true
+    },
+    msg: {
+      type: String,
+      required: true
+    }
+  },
+  setup(props) {
     const state = reactive({
-      msg: "empty",
+      msg: props.msg,
     });
 
     const decoder = new TextDecoder("utf-8");
+
+    console.log(props.msg);
 
     function onClick() {
       const url = "http://localhost:9000"
@@ -30,11 +42,15 @@ export default {
 
     return {
       state,
-      onClick,
+      onClick
     };
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+  button {
+    background-color: aquamarine;
+  }
+</style>
